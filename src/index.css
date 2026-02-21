@@ -1,0 +1,292 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Interdisciplinary Project Management Platform
+  University-Grade Academic Design System
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Core Academic Palette - Clean Blues & Neutrals */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+
+    /* Primary - Deep Academic Blue */
+    --primary: 217 71% 45%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 217 71% 55%;
+    --primary-dark: 217 71% 35%;
+
+    /* Secondary - Soft Blue-Gray */
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 215 25% 25%;
+
+    /* Muted - Subtle Grays */
+    --muted: 210 15% 92%;
+    --muted-foreground: 215 15% 45%;
+
+    /* Accent - Teal for highlights */
+    --accent: 185 55% 45%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Status Colors */
+    --success: 152 55% 42%;
+    --success-foreground: 0 0% 100%;
+    --success-light: 152 55% 95%;
+    
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --warning-light: 38 92% 95%;
+    
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Lifecycle Phase Colors */
+    --phase-identification: 199 89% 48%;
+    --phase-design: 262 52% 56%;
+    --phase-testing: 38 92% 50%;
+    --phase-presentation: 152 55% 42%;
+
+    /* Department/School Colors */
+    --dept-engineering: 217 71% 45%;
+    --dept-management: 152 55% 42%;
+    --dept-law: 262 52% 56%;
+    --dept-education: 38 92% 50%;
+    --dept-sciences: 185 55% 45%;
+
+    /* Border & Input */
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
+    --ring: 217 71% 45%;
+
+    --radius: 0.625rem;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 hsl(215 25% 15% / 0.05);
+    --shadow-md: 0 4px 6px -1px hsl(215 25% 15% / 0.08), 0 2px 4px -2px hsl(215 25% 15% / 0.06);
+    --shadow-lg: 0 10px 15px -3px hsl(215 25% 15% / 0.1), 0 4px 6px -4px hsl(215 25% 15% / 0.08);
+    --shadow-card: 0 1px 3px hsl(215 25% 15% / 0.06), 0 1px 2px -1px hsl(215 25% 15% / 0.06);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 215 25% 25%;
+    --sidebar-primary: 217 71% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 20% 96%;
+    --sidebar-accent-foreground: 215 25% 25%;
+    --sidebar-border: 214 20% 90%;
+    --sidebar-ring: 217 71% 45%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 210 20% 95%;
+
+    --card: 220 18% 13%;
+    --card-foreground: 210 20% 95%;
+
+    --popover: 220 18% 13%;
+    --popover-foreground: 210 20% 95%;
+
+    --primary: 217 71% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 217 71% 65%;
+    --primary-dark: 217 71% 45%;
+
+    --secondary: 220 18% 18%;
+    --secondary-foreground: 210 20% 90%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 185 55% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --success-light: 152 55% 15%;
+    --warning-light: 38 92% 15%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 217 71% 55%;
+
+    --sidebar-background: 220 18% 12%;
+    --sidebar-foreground: 210 20% 90%;
+    --sidebar-primary: 217 71% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 210 20% 90%;
+    --sidebar-border: 220 15% 18%;
+    --sidebar-ring: 217 71% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+}
+
+@layer components {
+  /* Metric Card Styles */
+  .metric-card {
+    @apply bg-card rounded-xl p-5 border border-border/50 transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .metric-card:hover {
+    box-shadow: var(--shadow-md);
+    @apply border-primary/20;
+  }
+
+  /* Project Card Styles */
+  .project-card {
+    @apply bg-card rounded-xl border border-border/50 overflow-hidden transition-all duration-300;
+    box-shadow: var(--shadow-card);
+  }
+  
+  .project-card:hover {
+    box-shadow: var(--shadow-lg);
+    @apply border-primary/30 -translate-y-0.5;
+  }
+
+  /* Phase Badge Variants */
+  .phase-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+  
+  .phase-badge-identification {
+    @apply bg-[hsl(199,89%,48%,0.12)] text-[hsl(199,89%,38%)];
+  }
+  
+  .phase-badge-design {
+    @apply bg-[hsl(262,52%,56%,0.12)] text-[hsl(262,52%,46%)];
+  }
+  
+  .phase-badge-testing {
+    @apply bg-[hsl(38,92%,50%,0.12)] text-[hsl(38,92%,35%)];
+  }
+  
+  .phase-badge-presentation {
+    @apply bg-[hsl(152,55%,42%,0.12)] text-[hsl(152,55%,32%)];
+  }
+
+  /* Department Tag Styles */
+  .dept-tag {
+    @apply inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-semibold uppercase tracking-wide;
+  }
+  
+  .dept-engineering {
+    @apply bg-primary/10 text-primary;
+  }
+  
+  .dept-management {
+    @apply bg-success/10 text-success;
+  }
+  
+  .dept-law {
+    @apply bg-[hsl(262,52%,56%,0.1)] text-[hsl(262,52%,46%)];
+  }
+  
+  .dept-education {
+    @apply bg-warning/10 text-[hsl(38,92%,35%)];
+  }
+  
+  .dept-sciences {
+    @apply bg-accent/10 text-accent;
+  }
+
+  /* Status Badge Styles */
+  .status-badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-xs font-medium;
+  }
+  
+  .status-open {
+    @apply bg-success-light text-success;
+  }
+  
+  .status-in-progress {
+    @apply bg-primary/10 text-primary;
+  }
+  
+  .status-completed {
+    @apply bg-muted text-muted-foreground;
+  }
+
+  /* Glass Effect */
+  .glass {
+    @apply bg-card/80 backdrop-blur-sm;
+  }
+
+  /* Dashboard Section */
+  .dashboard-section {
+    @apply mb-8;
+  }
+  
+  .dashboard-section-title {
+    @apply text-lg font-semibold text-foreground mb-4 flex items-center gap-2;
+    font-family: 'Source Sans 3', system-ui, sans-serif;
+  }
+}
+
+@layer utilities {
+  /* Smooth Transitions */
+  .transition-smooth {
+    @apply transition-all duration-300 ease-out;
+  }
+
+  /* Text Gradient */
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+  }
+
+  /* Subtle Background Pattern */
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(to right, hsl(var(--border) / 0.3) 1px, transparent 1px),
+      linear-gradient(to bottom, hsl(var(--border) / 0.3) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Custom Scrollbar */
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+  
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}

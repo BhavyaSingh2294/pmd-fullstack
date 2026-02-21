@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    # This tells Docker Compose to look INSIDE the backend folder for the secrets
+    env_file:
+      - ./backend/.env
+    restart: always
+
+  frontend:
+    build: .
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    restart: always
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# services:
+#   # THE BACKEND
+#   backend:
+#     build: ./backend
+#     ports:
+#       - "5000:5000"
+#     environment:
+#       - MONGODB_URI=${MONGODB_URI}
+#       - JWT_SECRET=${JWT_SECRET}
+#     restart: always
+
+#   # THE FRONTEND
+#   frontend:
+#     # "." tells Docker the frontend Dockerfile is right here in the root
+#     build: .
+#     ports:
+#       - "80:80"
+#     depends_on:
+#       - backend
+#     restart: always
