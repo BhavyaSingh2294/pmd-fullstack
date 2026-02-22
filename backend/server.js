@@ -17,7 +17,7 @@ const app = express();
 // Middleware
 const allowedOrigins = [
   "http://localhost:5173", // For local development
-  "https://pmd-frontend-five.vercel.app/" // Your actual Vercel URL
+  "https://pmd-frontend-pdd0mxcqq-bhavyasingh2294-gmailcoms-projects.vercel.app" // Your actual Vercel URL
 ];
 
 app.use(cors({
